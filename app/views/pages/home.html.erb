@@ -8,7 +8,15 @@
 <% else %>
   <h3><%= link_to "Log in", new_user_session_path %></h3>
   <h3><%= link_to "Sign up", new_user_registration_path %></h3>
-<% end %>  
+<% end %>
 
+<h3><%= link_to "Start a chatroom", new_chatroom_path %></h3>
 
-<%= react_component("TestComponent") %>
+<br/><br/><br/>
+
+<h3>
+  <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom.name, chatroom_path(chatroom) %>
+    <br/>
+  <% end %>
+</h3>
