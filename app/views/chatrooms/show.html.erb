@@ -1,5 +1,7 @@
-<div>
+<h1><%= @chatroom.name %></h1>
 
-  <h1><%= @chatroom.name %></h1>
-
-</div>
+<%= react_component("Comments", {
+  root_url: root_url,
+  chatroom: @chatroom,
+  comments: @comments
+}) %>
