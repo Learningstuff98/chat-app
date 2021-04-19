@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CommentForm from './CommentForm';
+import consumer from "channels/consumer";
 
 function Comments(props) {
   const [comments, setComments] = useState(props.comments);
+
+  useEffect(() => {
+    handleWebsocketUpdates();
+  });
+
+  const handleWebsocketUpdates = () => {
+    consumer.subscriptions.create({channel: "ChatroomChannel"}, {
+      received(data) {
+        setComments([...comments, data.comment]);
+      }
+    });
+  };
 
   return <div>
     <br/>
