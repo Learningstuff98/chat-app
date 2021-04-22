@@ -4,10 +4,7 @@ class CommentsController < ApplicationController
   def create
     chatroom = Chatroom.find(params[:chatroom_id])
     comment = chatroom.comments.create(comment_params)
-    SendCommentJob.perform_later({
-      comment: comment,
-      chatroom: chatroom
-    })
+    SendCommentJob.perform_later(comment)
   end
 
   private

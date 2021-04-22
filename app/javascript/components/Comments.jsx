@@ -12,7 +12,7 @@ function Comments(props) {
   const handleWebsocketUpdates = () => {
     consumer.subscriptions.create({channel: "ChatroomChannel"}, {
       received(data) {
-        if(data.chatroom.id === props.chatroom.id) {
+        if(data.comment.chatroom_id === props.chatroom.id) {
           setComments([...comments, data.comment]);
         }
       }
