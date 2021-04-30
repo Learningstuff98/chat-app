@@ -17,4 +17,12 @@ RSpec.describe ChatroomsController, type: :controller do
       expect(Chatroom.all.count).to eq 1
     end
   end
+
+  describe "show action" do
+    it "should work" do
+      chatroom = FactoryBot.create(:chatroom)
+      get :show, params: { id: chatroom.id }
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
