@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:ddeedad5592b59f966e90e893df716ce@barb.redistogo.com:9873/
+  url: redis://:p08ea05d87a5eb73c5b9a1b25738627bbd96f8665774c3df1c2973fb870207681@ec2-54-198-198-98.compute-1.amazonaws.com:15439
   channel_prefix: chat_app_production
